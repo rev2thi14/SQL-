@@ -39,17 +39,6 @@ insert into customer values(3005,'nick','london',500,501)
 insert into customer values(3006,'nick','newyork',100,501)
 select*from customer
 
---14.write a SQL query to find the salespeople who lives in the City of 'Paris'. Return salesperson's name, city.
-select customername,customercity from customer where customercity='paris'
-
-
---15.write a SQL query to find those customers whose grade is 200. Return customer_id, cust_name, city, grade, salesman_id
-select customerid,customername,customercity ,customersalesmanid from customer where customergrade=200
-
---16.write a SQL query to find the orders, which are delivered by a salesperson of ID. 5001. Return ord_no, ord_date, purch_amt
-select ordersno,ordessdate,orderspurchamt from orders where orderssalesmanid=5001
-
-
 
 --1.write a SQL query to calculate average purchase amount of all orders. Return average purchase amount. 
 select avg (orderspurchamt) 
@@ -97,4 +86,21 @@ select salesmanName,salesmanCommission from salesman
 
 --13.Write a query to display the columns in a specific order like order date, salesman id, order number and purchase amount from for all the orders
 select ordessdate,orderssalesmanid,ordersno,orderspurchamt from orders
+
+--14.write a SQL query to find the salespeople who lives in the City of 'Paris'. Return salesperson's name, city.
+select customername,customercity from customer where customercity='paris'
+
+
+--15.write a SQL query to find those customers whose grade is 200. Return customer_id, cust_name, city, grade, salesman_id
+select customerid,customername,customercity ,customersalesmanid from customer where customergrade=200
+
+--16.write a SQL query to find the orders, which are delivered by a salesperson of ID. 5001. Return ord_no, ord_date, purch_amt
+select ordersno,ordessdate,orderspurchamt from orders where orderssalesmanid=5001
+
+--17.write a SQL query to find the salesperson and customer who belongs to same city. Return Salesman, cust_name and city
+select salesmanName  AS "Salesman",
+customer.customername, customercity 
+from salesman,customer 
+where salesmanCity=customercity
+
 
